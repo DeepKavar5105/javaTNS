@@ -1,20 +1,25 @@
-package student;
+package staticKeyword;
 
 public class Student {
-    String name;
+    private static int totalStudent;
+    private String name;
+    private int age;
 
-    public Student() {
-        this.name = "Unknown";
-    }
-
-    public Student(String name) {
+    public Student(String name, int age) {
         this.name = name;
+        this.age = age;
+        totalStudent += 1;
     }
 
-    public static void main(String[] args) {
-        Student s = new Student();
-        System.out.println(s.name);
-        Student s1 = new Student("James");
-        System.out.println(s1.name);
+    public static int getTotalStudent() {
+        return totalStudent;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
